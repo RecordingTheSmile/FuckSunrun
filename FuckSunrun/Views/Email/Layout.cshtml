@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewData["title"]</title>
+    <style>
+        .email-head {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #AB47BC;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            color: rgb(255,255,255);
+        }
+
+        .email-body {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-content: center;
+            margin-top: 60px;
+        }
+
+        .email-container {
+            width: 75%;
+            word-break: break-all;
+            overflow: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-head">
+        <h2>阳光小助手</h2>
+    </div>
+    <div class="email-body">
+        <div class="email-container">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

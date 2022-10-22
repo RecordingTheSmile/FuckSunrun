@@ -1,0 +1,106 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
+    <None Remove="Services\" />
+    <None Remove="Services\Sunrun\" />
+    <None Remove="Exceptions\" />
+    <None Remove="Models\Services\" />
+    <None Remove="Models\Services\Sunrun\" />
+    <None Remove="Flurl" />
+    <None Remove="Flurl.Http" />
+    <None Remove="Common\" />
+    <None Remove="Common\HttpClientFactory\" />
+    <None Remove="Polly" />
+    <None Remove="Filters\" />
+    <None Remove="Common\R\" />
+    <None Remove="Views\Console\" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" />
+    <None Remove="Models\Entities\" />
+    <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <None Remove="Services\Database\" />
+    <None Remove="Common\Conf\" />
+    <None Remove="Models\Enums\" />
+    <None Remove="BCrypt.Net-Next" />
+    <None Remove="Services\Managers\" />
+    <None Remove="Common\DI\" />
+    <None Remove="Models\Dtos\" />
+    <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Authentication\" />
+    <None Remove="Hangfire.Core" />
+    <None Remove="Services\Schedule\" />
+    <None Remove="Services\MailSender\" />
+    <None Remove="MailKit" />
+    <None Remove="Razor.Templating.Core" />
+    <None Remove="Views\Email\" />
+    <None Remove="Common\Utils\" />
+    <None Remove="CDB.Captcha" />
+    <None Remove="TimeZoneConverter" />
+    <None Remove="Common\HttpContextExts\" />
+    <None Update="fonts\Candara.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="fonts\impact.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="fonts\monbaiti.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="fonts\simsun.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Hangfire.Redis.StackExchange" Version="1.8.6" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.10" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.10" />
+    <PackageReference Include="Flurl" Version="3.0.6" />
+    <PackageReference Include="Flurl.Http" Version="3.2.4" />
+    <PackageReference Include="Polly" Version="7.2.3" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.7" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Hangfire.Core" Version="1.7.31" />
+    <PackageReference Include="MailKit" Version="3.4.1" />
+    <PackageReference Include="Razor.Templating.Core" Version="1.7.1" />
+    <PackageReference Include="CDB.Captcha" Version="1.0.2" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.70" />
+    <PackageReference Include="TimeZoneConverter" Version="6.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Services\Sunrun\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Models\Services\" />
+    <Folder Include="Models\Services\Sunrun\" />
+    <Folder Include="Common\" />
+    <Folder Include="Common\HttpClientFactory\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Common\R\" />
+    <Folder Include="Views\Console\" />
+    <Folder Include="Models\Entities\" />
+    <Folder Include="Services\Database\" />
+    <Folder Include="Common\Conf\" />
+    <Folder Include="Models\Enums\" />
+    <Folder Include="Services\Managers\" />
+    <Folder Include="Common\DI\" />
+    <Folder Include="Models\Dtos\" />
+    <Folder Include="Authentication\" />
+    <Folder Include="Services\Schedule\" />
+    <Folder Include="Services\MailSender\" />
+    <Folder Include="Views\Email\" />
+    <Folder Include="Common\Utils\" />
+    <Folder Include="Common\HttpContextExts\" />
+  </ItemGroup>
+</Project>

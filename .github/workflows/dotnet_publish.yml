@@ -33,3 +33,4 @@ jobs:
         files: |
           ${{ secrets.ReleaseZipName }}.zip
           LICENSE 
+          

@@ -14,11 +14,12 @@
 - [ ] 前端UI增加手机端适配
 
 # 演示网站
-https://sunrun.gq
+~~ttps://sunrun.gq~~
+(由于成本问题暂停，欢迎赞助机器:joy:)
 
 # 部署方法
-1. 下载`Release`中的压缩包并解压，或者`clone`本项目代码后自行使用`dotnet`编译。
-2. 在项目根目录创建一个`appsettings.Production.json`文件，文件内容复制`appsettings.Development.json`文件。
+1. 下载`Release`中的`publish.zip`压缩包并解压，或者`clone`本项目代码后自行使用`dotnet`编译。
+2. 编辑解压后根目录中的`appsettings.Production.json`文件。
 文件中，`ConnectionStrings.PgSQL`按照演示填写PostgreSQL数据库连接信息，Redis填写Redis连接信息。
 Smtp信息按照文件中的字段填写。
 3. 部署到服务器上，运行。
@@ -31,7 +32,7 @@ Smtp信息按照文件中的字段填写。
 [Redis官方页面](https://redis.io/docs/getting-started/installation/)
 
 # 技术信息
-1. 平台：.NET 6
+1. 平台：.NET 7
 2. 数据库： PostgreSQL,Redis
 3. 定时任务库：Hangfire
 4. 前端框架：Layui + Pear Admin

@@ -5,7 +5,7 @@
 
 <h1>跑步结果</h1>
 <p>我们完成了您的一次跑步任务，结果如下：</p>
-<p>结果：<span style="color:@(isRunSuccess?"green":"red"))">@(isRunSuccess?"成功":"失败"))</span></p>
+<p>结果：<span style="color:@(isRunSuccess?"green":"red")">@(isRunSuccess?"成功":"失败")</span></p>
 @if (!isRunSuccess) {
 
         <p>失败原因：@ViewData["reason"]</p>

@@ -1,4 +1,5 @@
 ﻿using Flurl.Http;
+
 using FuckSunrun.Authentication;
 using FuckSunrun.Common.Conf;
 using FuckSunrun.Common.DI;
@@ -9,11 +10,12 @@ using FuckSunrun.Services.Database;
 using FuckSunrun.Services.MailSender;
 using FuckSunrun.Services.Managers;
 using FuckSunrun.Services.Schedule;
+
 using Hangfire;
 using Hangfire.Redis;
+
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 //全局配置Flurl
 FlurlHttp.Configure(opts =>
@@ -24,7 +26,7 @@ FlurlHttp.Configure(opts =>
 var builder = WebApplication.CreateBuilder(args).AttachConfig();
 
 //配置Hangfire
-GlobalConfiguration.Configuration.UseRedisStorage(builder.Configuration.GetConnectionString("Redis"),new RedisStorageOptions
+GlobalConfiguration.Configuration.UseRedisStorage(builder.Configuration.GetConnectionString("Redis"), new RedisStorageOptions
 {
     Prefix = "HangfireTimer-"
 });
@@ -114,17 +116,17 @@ app.MapControllerRoute(
 app.MapFallbackToController("HandleNotFound", "Public");
 
 //初始化数据库并添加种子数据
-await using(var scoped = app.Services.CreateAsyncScope())
+await using (var scoped = app.Services.CreateAsyncScope())
 {
-    await using(var db = scoped.ServiceProvider.GetRequiredService<Database>())
+    await using (var db = scoped.ServiceProvider.GetRequiredService<Database>())
     {
         await db.Database.MigrateAsync();
 
-        if(!await db.Users.AnyAsync())
+        if (!await db.Users.AnyAsync())
         {
             var userManager = scoped.ServiceProvider.GetRequiredService<UserManager>();
 
-            var userId = await userManager.AddUserAsync("admin", "admin123", "admin@admin.com" ,UserPermission.Admin);
+            var userId = await userManager.AddUserAsync("admin", "admin123", "admin@admin.com", UserPermission.Admin);
 
             await userManager.ChangeUserEmailStatusAsync(userId, true);
         }

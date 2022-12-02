@@ -14,7 +14,7 @@ namespace FuckSunrun.Services.Schedule
     {
         [AutomaticRetry(Attempts =0,OnAttemptsExceeded =AttemptsExceededAction.Delete)]
         [SunrunScheduleLogger]
-        public static async Task RunAsync(long taskId)
+        public static async Task RunAsync(long taskId,int retryTimes = 0)
         {
             await using var db = new Database.Database();
 
@@ -66,7 +66,7 @@ namespace FuckSunrun.Services.Schedule
             switch (context.CandidateState)
             {
                 case FailedState failState:
-                    ProcessFailState(taskId.Value, failState.Exception).GetAwaiter().GetResult();
+                    ProcessFailState(failState.Exception,context.BackgroundJob.Job.Args).GetAwaiter().GetResult();
                     break;
                 case SucceededState:
                         ProcessSuccessState(taskId.Value).GetAwaiter().GetResult();
@@ -98,8 +98,19 @@ namespace FuckSunrun.Services.Schedule
             await db.SaveChangesAsync();
         }
 
-        public async Task ProcessFailState(long taskId,Exception exception)
+        public async Task ProcessFailState(Exception exception,IReadOnlyList<object> args)
         {
+            var (taskId, retryTimes) = (args[0] as long?, args[1] as int?);
+            if (taskId==null || retryTimes == null)
+            {
+                return;
+            }
+            if(retryTimes <= 3)
+            {
+                BackgroundJob.Enqueue(() => SunrunSchedule.RunAsync(taskId.Value, retryTimes.Value + 1));
+                return;
+            }
+
             await using var db = new Database.Database();
 
             var taskInfo = await (

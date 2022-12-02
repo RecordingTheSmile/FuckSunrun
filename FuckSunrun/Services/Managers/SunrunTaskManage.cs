@@ -41,7 +41,7 @@ namespace FuckSunrun.Services.Managers
 
             if (isEnable)
             {
-                RecurringJob.AddOrUpdate($"{task.Id}:{task.UserId}:{task.CreateAt}", () => SunrunSchedule.RunAsync(task.Id), Cron.Daily(hour, minute), TZAsiaShanghai);
+                RecurringJob.AddOrUpdate($"{task.Id}:{task.UserId}:{task.CreateAt}", () => SunrunSchedule.RunAsync(task.Id,0), Cron.Daily(hour, minute), TZAsiaShanghai);
             }
         }
 
@@ -71,7 +71,7 @@ namespace FuckSunrun.Services.Managers
 
             if (task.IsEnable)
             {
-                RecurringJob.AddOrUpdate($"{task.Id}:{task.UserId}:{task.CreateAt}", () => SunrunSchedule.RunAsync(task.Id), Cron.Daily(hour, minute), TZAsiaShanghai);
+                RecurringJob.AddOrUpdate($"{task.Id}:{task.UserId}:{task.CreateAt}", () => SunrunSchedule.RunAsync(task.Id,0), Cron.Daily(hour, minute), TZAsiaShanghai);
             }
 
             task.Hour = hour;
@@ -96,7 +96,7 @@ namespace FuckSunrun.Services.Managers
 
             if (isEnable)
             {
-                RecurringJob.AddOrUpdate($"{task.Id}:{task.UserId}:{task.CreateAt}", () => SunrunSchedule.RunAsync(task.Id), Cron.Daily(task.Hour, task.Minute), TZAsiaShanghai);
+                RecurringJob.AddOrUpdate($"{task.Id}:{task.UserId}:{task.CreateAt}", () => SunrunSchedule.RunAsync(task.Id,0), Cron.Daily(task.Hour, task.Minute), TZAsiaShanghai);
             }
 
             db.SunrunTasks.Update(task);

@@ -1,3 +1,6 @@
+# 项目已停止维护
+项目功能已迁移至[sunrun-rs](https://github.com/whl2606555/sunrun-rs)
+
 # 阳光小助手
 一款基于.NET平台开发的高可用阳光体育跑步平台。
 
